@@ -11,7 +11,12 @@
 module.exports = (robot) ->
 
   robot.hear /what is (.*)/i, (msg) ->
-    msg.send "http://lmgtfy.com/?q="+msg.match[0].split(' ').slice(2).join('%20')
+    query = msg.match[0].split(' ').slice(2).join('%20')
+    if [ 'that', 'up' ].indexOf(query.toLowerCase()) == -1
+      msg.send "http://lmgtfy.com/?q="+msg.match[0].split(' ').slice(2).join('%20')
+
+  robot.hear /\s(jon|josh|poock|pocock)[\w|\s]*/i, (msg) ->
+    msg.send ":josh:"
   #
   # robot.respond /open the (.*) doors/i, (msg) ->
   #   doorType = msg.match[1]
