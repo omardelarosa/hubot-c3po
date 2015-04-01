@@ -10,8 +10,8 @@
 
 module.exports = (robot) ->
 
-  # robot.hear /badger/i, (msg) ->
-  #   msg.send "Badgers? BADGERS? WE DON'T NEED NO STINKIN BADGERS"
+  robot.hear /what is (.*)/i, (msg) ->
+    msg.send "http://lmgtfy.com/?q="+msg.match[0].split(' ').slice(2).join('%20')
   #
   # robot.respond /open the (.*) doors/i, (msg) ->
   #   doorType = msg.match[1]
