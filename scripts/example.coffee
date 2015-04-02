@@ -1,3 +1,4 @@
+twss = require('twss');
 # Description:
 #   Example scripts for you to examine and try out.
 #
@@ -17,6 +18,11 @@ module.exports = (robot) ->
 
   robot.hear /\s(jon|josh|poock|pocock)[\w|\s]*/i, (msg) ->
     msg.send ":josh:"
+
+  # that's what she said
+  robot.hear /(.*)/, (msg) ->
+    if twss.is(msg.match[0])
+      msg.send "That's what she said!"
   #
   # robot.respond /open the (.*) doors/i, (msg) ->
   #   doorType = msg.match[1]
