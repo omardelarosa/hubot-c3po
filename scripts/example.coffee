@@ -1,4 +1,5 @@
 twss = require('twss');
+twss.threshold = 0.9
 # Description:
 #   Example scripts for you to examine and try out.
 #
@@ -20,9 +21,9 @@ module.exports = (robot) ->
     msg.send ":josh:"
 
   # that's what she said
-  # robot.hear /(.*)/, (msg) ->
-    # if twss.is(msg.match[0])
-    #   msg.send "That's what she said!"
+  robot.hear /(.*)/, (msg) ->
+    if msg.match[0].split(' ').length > 2 and twss.is(msg.match[0])
+      msg.send "That's what she said!"
   #
   # robot.respond /open the (.*) doors/i, (msg) ->
   #   doorType = msg.match[1]
