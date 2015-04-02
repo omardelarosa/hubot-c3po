@@ -20,10 +20,10 @@ module.exports = (robot) ->
   robot.hear /\s(jon|josh|poock|pocock)[\w|\s]*/i, (msg) ->
     msg.send ":josh:"
 
-  # that's what she said
-  robot.hear /(.*)/, (msg) ->
-    if msg.match[0].split(' ').length > 2 and twss.is(msg.match[0])
-      msg.send "That's what she said!"
+  ## that's what she said
+  # robot.hear /(.*)/, (msg) ->
+  #   if msg.match[0].split(' ').length > 2 and twss.is(msg.match[0])
+  #     msg.send "That's what she said!"
   #
   # robot.respond /open the (.*) doors/i, (msg) ->
   #   doorType = msg.match[1]
