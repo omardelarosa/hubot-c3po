@@ -28,7 +28,8 @@ module.exports = (robot) ->
   #     msg.send "http://lmgtfy.com/?q="+msg.match[0].split(' ').slice(2).join('%20')
 
   robot.hear /\s(jon|josh|poock|pocock)[\w|\s]*/i, (msg) ->
-    msg.send ":josh:"
+    if robot.brain.get('quietMode') != true
+      msg.send ":josh:"
 
   # quiet mode
   robot.respond /fuck off/, (msg) ->
