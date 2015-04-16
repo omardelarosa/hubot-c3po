@@ -1,5 +1,13 @@
-twss = require('twss');
+twss = require('twss')
 twss.threshold = 0.9
+quiet_mode_mins = 5
+default_quiet_mode_duration = quiet_mode_mins * 60000
+quiet_mode_start_time = null
+timer = null
+
+getRemainingQuietTime = () ->
+  (quiet_mode_start_time + default_quiet_mode_duration - Date.now()) / 60000
+
 # Description:
 #   Example scripts for you to examine and try out.
 #
@@ -12,13 +20,31 @@ twss.threshold = 0.9
 
 module.exports = (robot) ->
 
-  robot.hear /what is (.*)/i, (msg) ->
-    query = msg.match[0].split(' ').slice(2).join('%20')
-    if [ 'that', 'up' ].indexOf(query.toLowerCase()) == -1
-      msg.send "http://lmgtfy.com/?q="+msg.match[0].split(' ').slice(2).join('%20')
+  # r.i.p. ...
+
+  # robot.hear /what is (.*)/i, (msg) ->
+  #   query = msg.match[0].split(' ').slice(2).join('%20')
+  #   if [ 'that', 'up' ].indexOf(query.toLowerCase()) == -1
+  #     msg.send "http://lmgtfy.com/?q="+msg.match[0].split(' ').slice(2).join('%20')
 
   robot.hear /\s(jon|josh|poock|pocock)[\w|\s]*/i, (msg) ->
     msg.send ":josh:"
+
+  # quiet mode
+  robot.respond /fuck off/, (msg) ->
+    if robot.brain.get('quietMode') != true
+      robot.brain.set('quietMode', true)
+      quiet_mode_start_time = Date.now()
+      timer = setTimeout ->
+        robot.brain.set('quietMode', false)
+      , default_quiet_mode_duration
+      msg.send "Okay, I'll shut up for "+quiet_mode_mins+" mins."
+    else
+      msg.send "I'm in quiet mode for another "+getRemainingQuietTime()+" mins."
+
+  robot.respond /listen up/, (msg) ->
+    robot.brain.set('quietMode', false)
+    msg.send "What is thy bidding, my master?"
 
   ## that's what she said
   # robot.hear /(.*)/, (msg) ->
