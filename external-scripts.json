@@ -10,5 +10,6 @@
   "hubot-shipit",
   "hubot-youtube",
   "hubot-thesimpsons",
-  "hubot-netrunner"
+  "hubot-netrunner",
+  "hubot-google-images"
 ]
