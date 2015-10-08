@@ -1,9 +1,9 @@
 _ = require 'lodash'
-NO_TOPIC = 'none';
+NO_TOPIC = 'none'
 
 module.exports = (robot) ->
 
-  robot.hear /topic set (.*)/, (msg) ->
+  robot.respond /topic set (.*)/, (msg) ->
     t = msg.match[1]
     if (t)
       robot.brain.set 'currentTopic', t
@@ -17,16 +17,18 @@ module.exports = (robot) ->
 
       msg.send "Topic has been set to '" +msg.match[1] + "'"
 
-  robot.hear /topic (list|ls)/, (msg) ->
-    msg.send robot.brain.get('topicList')
+  robot.respond /topic (list|ls)/, (msg) ->
+    list = robot.brain.get('topicList')
+    console.log list
+    msg.send list
 
-  robot.hear /topic current/, (msg) ->
+  robot.respond /topic (current|is)/, (msg) ->
     msg.send "The current topic is '" + robot.brain.get('currentTopic') + "'"
 
-  robot.hear /topic reset/, (msg) ->
+  robot.respond /topic reset/, (msg) ->
     robot.brain.set('topicList', NO_TOPIC)
     msg.send "Consider it all forgotten."
 
-  robot.hear /topic help/, (msg) ->
+  robot.respond /topic help/, (msg) ->
     s = "@bot [set|list|reset|current] TOPIC"
     msg.send s
