@@ -1,4 +1,5 @@
-twss = require('twss')
+topics  = require './topics'
+twss    = require 'twss'
 twss.threshold = 0.9
 quiet_mode_mins = 5
 default_quiet_mode_duration = quiet_mode_mins * 60000
