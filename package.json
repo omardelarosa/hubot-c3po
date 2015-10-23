@@ -12,7 +12,7 @@
     "hubot-help": "^0.1.1",
     "hubot-heroku-keepalive": "0.0.4",
     "hubot-maps": "0.0.1",
-    "hubot-netrunner": "^0.0.6",
+    "hubot-netrunner": "~0.0.7",
     "hubot-pugme": "^0.1.0",
     "hubot-redis-brain": "0.0.2",
     "hubot-rules": "^0.1.0",
@@ -23,6 +23,9 @@
     "hubot-youtube": "^0.1.2",
     "lodash": "^3.10.1",
     "twss": "^0.1.6"
+  },
+  "scripts": {
+    "start": "./bin/hubot"
   },
   "engines": {
     "node": "0.10.x"
