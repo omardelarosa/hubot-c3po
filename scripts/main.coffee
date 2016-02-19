@@ -32,6 +32,10 @@ module.exports = (robot) ->
     if robot.brain.get('quietMode') != true
       msg.send ":josh:"
 
+  robot.hear /(doom|doomed)[\w|\s]*/i, (msg) ->
+    if robot.brain.get('quietMode') != true
+      msg.send ":cacodemon: :cacodemon: :cacodemon:"
+
   # quiet mode
   robot.respond /fuck off/, (msg) ->
     if robot.brain.get('quietMode') != true
