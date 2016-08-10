@@ -18,7 +18,9 @@ encode = (str) ->
 # we append '#.jpg' to url string because some chat clients (eg. hip chat)
 # will not exapand images if they don't end in an image extension
 getImageUrl = (episode, timestamp, caption) ->
-  "https://morbotron.com/meme/#{episode}/#{timestamp}.jpg?lines=#{encode(caption)}#.jpg"
+  "https://morbotron.com/meme/#{episode}/#{timestamp}#.jpg"
+#  original captionifying code:
+#  "https://morbotron.com/meme/#{episode}/#{timestamp}.jpg?lines=#{encode(caption)}#.jpg"
 
 getLongestWordLength = (words) ->
   longestWordLength = 0
