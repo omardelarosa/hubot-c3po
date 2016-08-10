@@ -5,7 +5,8 @@
   "author": "omardelarosa <thedelarosa@gmail.com>",
   "description": "Hangzone Robot",
   "dependencies": {
-    "es6-promise": "3.2.1",
+    "axios": "0.12.0"
+    "es6-promise": "3.2.2",
     "hubot": "^2.11.1",
     "hubot-diagnostics": "0.0.1",
     "hubot-google-images": "0.2.1",
