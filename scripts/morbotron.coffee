@@ -83,6 +83,7 @@ module.exports = (robot) ->
           else
             axios(getRequestConfig('caption', {e: episode, t: timestamp}))
               .then (response) ->
+                msg.send response.data.Subtitles
                 msg.send getImageUrl(episode, timestamp, combineCaptions(response.data.Subtitles))
 
         else
