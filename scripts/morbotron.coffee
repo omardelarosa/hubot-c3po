@@ -87,6 +87,7 @@ module.exports = (robot) ->
 
         else
           console.log("Total Hell! I couldn't find anything for `#{query[0]}`.");
+          msg.send "You searched for `#{query[0]}`.  FILE NOT FOUND.  https://morbotron.com/img/S02E17/753283.jpg  https://morbotron.com/img/S02E17/755585.jpg"
 
       .catch (error) ->
         console.error(error);
