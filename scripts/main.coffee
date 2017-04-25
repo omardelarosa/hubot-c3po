@@ -31,7 +31,8 @@ module.exports = (robot) ->
 
   robot.hear /\s(jon|josh|poock|pocock)[\w|\s]*/i, (msg) ->
     if robot.brain.get('quietMode') != true
-      msg.send ":josh:"
+      if (Math.floor(Math.random() * 20) + 1) <= 1
+        msg.send ":josh:"
 
   robot.hear /(doom|doomed)[\w|\s]*/i, (msg) ->
     if robot.brain.get('quietMode') != true
