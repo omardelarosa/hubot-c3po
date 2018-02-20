@@ -36,7 +36,8 @@ module.exports = (robot) ->
 
   robot.hear /(doom|doomed)[\w|\s]*/i, (msg) ->
     if robot.brain.get('quietMode') != true
-      msg.send ":cacodemon: :cacodemon: :cacodemon:"
+      if (Math.floor(Math.random() * 20) + 1) <= 1
+        msg.send ":cacodemon: :cacodemon: :cacodemon:"
   
   robot.hear /(cosmic horror|uncanny valley)/i, (msg) ->
     if robot.brain.get('quietMode') != true
