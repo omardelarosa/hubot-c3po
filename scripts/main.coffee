@@ -39,10 +39,10 @@ module.exports = (robot) ->
       if (Math.floor(Math.random() * 20) + 1) <= 1
         msg.send ":cacodemon: :cacodemon: :cacodemon:"
   
-  robot.hear /(cosmic horror|uncanny valley)/i, (msg) ->
+  robot.hear /(cosmic horror)/i, (msg) ->
     if robot.brain.get('quietMode') != true
       if (Math.floor(Math.random() * 3) + 1) <= 1
-        msg.send "https://media.giphy.com/media/3ohs86R518G4TG3SXS/giphy.gif"
+        msg.send "https://media0.giphy.com/media/tUVHQqDu2Zna0/giphy.gif"
 
   # quiet mode
   robot.respond /fuck off/, (msg) ->
