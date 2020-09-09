@@ -43,6 +43,10 @@ module.exports = (robot) ->
     if robot.brain.get('quietMode') != true
       if (Math.floor(Math.random() * 3) + 1) <= 1
         msg.send "https://media0.giphy.com/media/tUVHQqDu2Zna0/giphy.gif"
+        
+  robot.hear /(froggo)/i, (msg) ->
+    if robot.brain.get('quietMode') != true
+      msg.send "https://hangzone.slack.com/files/U07JB20CS/F01AS52GZ7T/froggo.jpeg"
 
   # quiet mode
   robot.respond /fuck off/, (msg) ->
